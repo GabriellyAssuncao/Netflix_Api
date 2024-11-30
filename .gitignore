@@ -35,6 +35,7 @@ byebug_history
 docker-compose.yml
 .docker/
 
+.env
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
