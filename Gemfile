@@ -27,7 +27,8 @@ gem "turbo-rails"
 gem "stimulus-rails"
 
 # Build JSON APIs with ease [https://github.com/rails/jbuilder]
-gem "jbuilder"
+gem 'jbuilder', '~> 2.0'
+
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"
@@ -52,7 +53,15 @@ gem "bootsnap", require: false
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem 'byebug', platforms: %i[mri mingw x64_mingw]
+  gem "rubocop", "~> 1.12", require: false
+  gem 'rubocop-rails', '~> 2.9', require: false
+  gem "rubocop-rspec", require: false
+
+   # Test gems
+   gem "factory_bot_rails", "~> 6.1.0"
+   gem "faker", "~> 2.10"
+   gem "rspec-rails", "~> 4.0.2"
 end
 
 group :development do
