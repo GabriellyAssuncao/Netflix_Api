@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   db:
     container_name: postgres
@@ -7,9 +5,9 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
     environment:
-      POSTGRES_USER: ${POSTGRES_USER}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
-      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: netflix_db_development
     networks:
       - netflix_network
 
@@ -28,10 +26,10 @@ services:
       - netflix_network
     environment:
       DATABASE_HOST: db
-      DATABASE_USER: ${POSTGRES_USER}
-      DATABASE_PASSWORD: ${POSTGRES_PASSWORD}
-      DATABASE_NAME: ${DATABASE_NAME}
-      SECRET_KEY_BASE: ${SECRET_KEY_BASE}
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: postgres
+      DATABASE_NAME: netflix_db_development
+      SECRET_KEY_BASE: 2b0233c05881a41fe7dfc023cb8774cf2b6c6fd94650dc6ade776c054d08b28cab8bfa37431b8846f3a4cecc6305f98b9225535c83665be55bbb343846acd41a
 networks:
   netflix_network:
 
