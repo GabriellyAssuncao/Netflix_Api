@@ -18,10 +18,7 @@ Layout/LineLength:
   Max: 130
 
 Metrics/BlockLength:
-  Exclude:
-    - 'spec/**/*'
-    - 'test/**/*'
-    - config/**/*
+  Enabled: false
 
 Style/StringLiterals:
   Enabled: false
@@ -46,3 +43,20 @@ Lint/RaiseException:
 
 Naming/PredicateName:
   Enabled: false
+
+RSpec/IndexedLet:
+  Enabled: false
+
+RSpec/ExampleLength:
+  Enabled: false
+
+RSpec/MultipleExpectations:
+  Enabled: false
+
+Rails/UniqueValidationWithoutIndex:
+  Enabled: false
+
+RSpec/AnyInstance:
+  Enabled: false
+
+

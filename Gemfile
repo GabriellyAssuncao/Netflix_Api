@@ -58,10 +58,11 @@ group :development, :test do
   gem 'rubocop-rails', '~> 2.9', require: false
   gem "rubocop-rspec", require: false
 
-   # Test gems
-   gem "factory_bot_rails", "~> 6.1.0"
-   gem "faker", "~> 2.10"
-   gem "rspec-rails", "~> 4.0.2"
+  # Test gems
+  gem "factory_bot_rails", "~> 6.1.0"
+  gem "faker", "~> 2.10"
+  gem "rspec-rails", "~> 4.0.2"
+
 end
 
 group :development do
@@ -79,5 +80,6 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem "capybara"
   gem "selenium-webdriver"
+  gem 'rails-controller-testing'
 
 end

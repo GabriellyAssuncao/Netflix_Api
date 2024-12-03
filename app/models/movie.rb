@@ -1,6 +1,6 @@
 class Movie < ApplicationRecord
   include Queryable
-  validates :show_id, uniqueness: true
+  validates :show_id, uniqueness: true, presence: true
 
   def self.filterable_params
     %w[title country genre year published_at description]

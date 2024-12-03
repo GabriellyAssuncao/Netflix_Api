@@ -1,4 +1,4 @@
-json.id movie.id
+json.id movie.id.to_s
 json.title movie.title
 json.genre movie.genre
 json.year movie.release_year

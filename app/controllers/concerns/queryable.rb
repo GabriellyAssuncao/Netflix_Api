@@ -34,9 +34,14 @@ module Queryable
     end
 
     def parse_date(value)
-      Date.strptime(value, "%Y-%m-%d") rescue
-      Date.strptime(value, "%d-%m-%Y") rescue
-      Date.strptime(value, "%d/%m/%Y")
+      case value
+      when /^\d{4}-\d{2}-\d{2}$/
+        Date.strptime(value, "%Y-%m-%d")
+      when /^\d{2}-\d{2}-\d{4}$/
+        Date.strptime(value, "%d-%m-%Y")
+      when %r{^\d{2}/\d{2}/\d{4}$}
+        Date.strptime(value, "%d/%m/%Y")
+      end
     end
   end
 end
