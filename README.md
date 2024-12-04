@@ -1,6 +1,8 @@
 # API de Filmes e Séries
 
-API eficiente para importar dados de filmes e séries a partir de um arquivo CSV diretamente para uma tabela no banco de dados. Com esta API, você pode facilmente carregar informações de filmes, como título, país, ano de lançamento e descrição, e em seguida listar esses dados em JSON.
+<p align="justify">
+API para importar dados de filmes e séries a partir de um arquivo CSV diretamente para uma tabela no banco de dados. Com esta API, você pode carregar informações de filmes, como título, país, ano de lançamento e descrição, e listar esses dados em formato JSON com filtros personalizados.
+</p>
 
 ## Configuração
 
@@ -21,13 +23,14 @@ Confira os tutorias disponíveis em:
 
 ## Execução
 
-Na raíz do projeto execute os seguintes comandos:
+Na raiz do projeto, execute os seguintes comandos para configurar e iniciar o ambiente:
 
+**Build da imagem Docker**
  ```docker
 docker compose build
 ```
 
-Em seguida:
+**Inicialização do ambiente**
 
  ```docker
 docker compose up
@@ -37,30 +40,30 @@ A API estará disponível em http://localhost:3000.
 ### Endpoints
 
 ```
-http://localhost:3000/load_movies   Carrega o conteúdo do csv para o banco de dados.
-http://localhost:3000/movies        Lista todos os filmes e séries salvos no banco de dados
+POST http://localhost:3000/load_movies   Carrega o conteúdo do csv para o banco de dados.
+GET  http://localhost:3000/movies        Lista todos os filmes e séries salvos no banco de dados
 ```
 
 
-Os filmes e sséris podem ser visualizados de forma personalizda utilizando filtros por título, páis, ano de lançamento, dessa forma:
+Você pode aplicar filtros para buscar filmes e séries com base em critérios específicos, como título, país e ano de lançamento. Exemplos:
 
 ```
-localhost:3000/movies?year=2020:                        Lista os filmes e séries lançados no ano de 2020.
-localhost:3000/movies?title=The World Is Not Enough:    Mostra apenas o filme com esse título.
-localhost:3000/movies?country=United States&year=2020:  Lista todos os filmes dos Estados Unidos lançados em 2020.
+GET http://localhost:3000/movies?year=2020:                        Lista os filmes e séries lançados no ano de 2020.
+GET http://localhost:3000/movies?title=The World Is Not Enough:    Mostra apenas o filme com esse título.
+GET http://localhost:3000/movies?country=United States&year=2020:  Lista todos os filmes dos Estados Unidos lançados em 2020.
 ```
 
 ### Testes
 
-Para executar os teste use o comando:
+Para executar os testes automatizados, na raiz do projeto, utilize o seguinte comando:
 ```docker
-docker exec -it netflix_backend bash
+docker exec -it netflix_backend rspec
 ```
 
-## Detalhes
+## Detalhes Técnicos
 
-```
-Ruby Version 3.0.2
-Rails Version 7.0.8
-Postgres Version 13
-```
+- **Ruby**: 3.0.2
+
+- **Rails**: 7.0.8
+
+- **PostgreSQL**: 13
