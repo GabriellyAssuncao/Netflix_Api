@@ -1,0 +1,37 @@
+services:
+  db:
+    container_name: postgres
+    image: postgres:13
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: netflix_db_development
+    networks:
+      - netflix_network
+
+  backend:
+    container_name: netflix_backend
+    build: 
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+      - ".:/app"
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+    networks:
+      - netflix_network
+    environment:
+      DATABASE_HOST: db
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: postgres
+      DATABASE_NAME: netflix_db_development
+      SECRET_KEY_BASE: 2b0233c05881a41fe7dfc023cb8774cf2b6c6fd94650dc6ade776c054d08b28cab8bfa37431b8846f3a4cecc6305f98b9225535c83665be55bbb343846acd41a
+networks:
+  netflix_network:
+
+volumes:
+  postgres_data:
